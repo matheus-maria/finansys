@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriesService } from '../category.service';
+import { Category } from '../category.model';
 
 @Component({
   selector: 'fns-category-list',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryListComponent implements OnInit {
 
-  constructor() { }
+  categories: Category[] = []
+
+  constructor(private categoriesService: CategoriesService) { }
 
   ngOnInit() {
-  }
+    this.categoriesService.categories().subscribe( 
+      categories => this.categories = categories, 
+      error => alert(`Erro ao carregar a lista: ${error}`)
+    )
+  }  
+  
+  
 
 }
