@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [
-  { path: 'categories', loadChildren: 'app/pages/categories/categories.module#CategoriesModule' }
+const routes: Routes = [  
+  { path: 'categories', loadChildren: './pages/categories/categories.module#CategoriesModule' }
 ];
 
 @NgModule({
@@ -10,3 +10,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
